@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resource
+            name="jdbc/oracle" auth="Container" type="javax.sql.DataSource"
+            username="huxx"
+            password="12345678"
+            url="jdbc:oracle:thin:@huxxinstance.c2corwmutw7a.ap-northeast-2.rds.amazonaws.com:1521:ORCL"
+            driverClassName="oracle.jdbc.OracleDriver"
+            maxTotal="100"
+            maxIdle="30"
+            maxWaitMillis="3000"/>
+</Context>

@@ -1,6 +1,6 @@
-<%@ page import="kr.co.bit.memberdao.MemberDAO" %>
+<%@ page import="kr.co.bit.dao.MemberDAO" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="kr.co.bit.membervo.MemberVO" %>
+<%@ page import="kr.co.bit.vo.MemberVO" %>
 <%@ page import="java.util.Arrays" %><%--
   Created by IntelliJ IDEA.
   User: bit-user
@@ -12,24 +12,34 @@
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript">
+        function send_remove(id) {
+            var frm = document.getElementById("frm");
+            frm.action = "command?cmd=remove&id="+id;
+            frm.onsubmit();
+        }
+    </script>
 </head>
 <body>
 <%
-    String id = request.getParameter("id");
+    ArrayList<MemberVO> list = (ArrayList<MemberVO>)request.getAttribute("list");
+    StringBuffer stringBuffer = new StringBuffer("<form method='post' action='' id='frm'>");
 
-    MemberDAO dao = new MemberDAO();
+    for (MemberVO vo :list) {
+        stringBuffer.append(vo.getId());
+        stringBuffer.append(" <a href = './command?cmd=update&name="+vo.getName()+"'>"+vo.getName()+"</a>");
+        stringBuffer.append(" " + vo.getAddr1());
+        stringBuffer.append("<button onclick=\"return send_remove('"+vo.getId()+"')\">");
+        stringBuffer.append("삭제</button><br>");
+    }
+    stringBuffer.append("</form>");
+    out.print(stringBuffer.toString());
 
-    out.print(dao.select1(id).get(0).getId());
-    out.print(dao.select1(id).get(0).getPw());
-    out.print(dao.select1(id).get(0).getName());
-    out.print(dao.select1(id).get(0).getEmail());
-    out.print(dao.select1(id).get(0).getZipcode());
-    out.print(dao.select1(id).get(0).getAddr1());
-    out.print(dao.select1(id).get(0).getAddr2());
-    out.print(dao.select1(id).get(0).getTool());
-    String te = Arrays.toString(dao.select1(id).get(0).getLangs());
-    out.print(te);
-    out.print(dao.select1(id).get(0).getProject());
+//    String id = request.getParameter("id");
+//
+//    MemberDAO dao = new MemberDAO();
+//
+//    out.print(dao.select1(id).get(0).getId());
 
 
 %>

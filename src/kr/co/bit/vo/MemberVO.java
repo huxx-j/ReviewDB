@@ -1,4 +1,4 @@
-package kr.co.bit.membervo;
+package kr.co.bit.vo;
 
 public class MemberVO {
     private String id;
@@ -13,6 +13,10 @@ public class MemberVO {
     private String[] langs;
 
     public String getId() {
+        return id;
+    }
+
+    public String setId_s(String id) {
         return id;
     }
 

@@ -1,4 +1,4 @@
-<%@ page import="kr.co.bit.memberdao.MemberDAO" %><%--
+<%@ page import="kr.co.bit.dao.MemberDAO" %><%--
   Created by IntelliJ IDEA.
   User: bit-user
   Date: 2018-04-06

@@ -201,7 +201,7 @@
                 </select>
             </td><td><button onclick="return select_check()">select 체크</button></td><td></td></tr>
         <tr>
-            <td colspan="4"><input type="submit" value="가입" onclick="return final_check()"></td>
+            <td colspan="4"><input type="submit" value="수정" onclick="return final_check()"></td>
 
         </tr>
     </table>
